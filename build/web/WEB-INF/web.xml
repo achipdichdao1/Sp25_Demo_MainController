@@ -1,0 +1,81 @@
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+                             http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         version="3.0">
+    <display-name>Product Management Application</display-name>
+    
+    <!-- Định nghĩa Filter -->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>filter.LoginFilter</filter-class>
+    </filter>
+
+    <!-- Áp dụng Filter cho mọi URL -->
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- Định nghĩa Servlet MainController -->
+    <servlet>
+        <servlet-name>MainController</servlet-name>
+        <servlet-class>controller.MainController</servlet-class>
+    </servlet>
+
+    <!-- Ánh xạ MainController -->
+    <servlet-mapping>
+        <servlet-name>MainController</servlet-name>
+        <url-pattern>/Sp25_Demo_MainController/*</url-pattern>
+    </servlet-mapping>
+    
+    
+    
+    <!-- Welcome File List -->
+    <welcome-file-list>
+        <welcome-file>login.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- Servlet definitions -->
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>controller.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/products</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/shop</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>UserServlet</servlet-name>
+        <servlet-class>controller.UserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UserServlet</servlet-name>
+        <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CartServlet</servlet-name>
+        <servlet-class>controller.CartServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartServlet</servlet-name>
+        <url-pattern>/cart</url-pattern>
+    </servlet-mapping>
+    <!-- AccessDataServlet -->
+    <servlet>
+        <servlet-name>AccessDataServlet</servlet-name>
+        <servlet-class>controller.AccessDataServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccessDataServlet</servlet-name>
+        <url-pattern>/accessData</url-pattern>
+    </servlet-mapping>
+    <!-- Listener -->
+    <listener>
+        <listener-class>listener.ProductSessionListener</listener-class>
+    </listener>
+    <!-- Session Timeout -->
+</web-app>
