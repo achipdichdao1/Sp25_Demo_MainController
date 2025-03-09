@@ -1,110 +1,108 @@
 package model;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Payment {
-    private int paymentId;
-    private String paymentCode;
-    private int userId;
-    private BigDecimal amount;
+    private int id;
     private String paymentMethod;
-    private Date paymentDate;
-    private String status; // 'PENDING', 'COMPLETED', 'FAILED'
-    private String description;
-
-    // Constructors
+    private int orderId;
+    private BigDecimal amount;
+    private String status;
+    private Timestamp paymentDate;
+    private String cardNumber;
+    private String cardName;
+    private String expDate;
+    
     public Payment() {
+        this.paymentDate = new Timestamp(System.currentTimeMillis());
     }
     
-    public Payment(int paymentId, String paymentCode, int userId, BigDecimal amount, 
-                   String paymentMethod, Date paymentDate, String status, String description) {
-        this.paymentId = paymentId;
-        this.paymentCode = paymentCode;
-        this.userId = userId;
-        this.amount = amount;
+    public Payment(int id, String paymentMethod, int orderId, BigDecimal amount, String status, 
+                  Timestamp paymentDate, String cardNumber, String cardName) {
+        this.id = id;
         this.paymentMethod = paymentMethod;
-        this.paymentDate = paymentDate;
-        this.status = status;
-        this.description = description;
-    }
-
-    // Getters and Setters
-    public int getPaymentId() {
-        return paymentId;
-    }
-
-    public void setPaymentId(int paymentId) {
-        this.paymentId = paymentId;
-    }
-
-    public String getPaymentCode() {
-        return paymentCode;
-    }
-
-    public void setPaymentCode(String paymentCode) {
-        this.paymentCode = paymentCode;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
+        this.orderId = orderId;
         this.amount = amount;
+        this.status = status;
+        this.paymentDate = paymentDate;
+        this.cardNumber = cardNumber;
+        this.cardName = cardName;
     }
-
+    
+    public int getId() {
+        return id;
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
     public String getPaymentMethod() {
         return paymentMethod;
     }
-
+    
     public void setPaymentMethod(String paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
-
-    public Date getPaymentDate() {
-        return paymentDate;
+    
+    public int getOrderId() {
+        return orderId;
     }
-
-    public void setPaymentDate(Date paymentDate) {
-        this.paymentDate = paymentDate;
+    
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
     }
-
+    
+    public BigDecimal getAmount() {
+        return amount;
+    }
+    
+    public void setAmount(double amount) {
+        this.amount = BigDecimal.valueOf(amount);
+    }
+    
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+    
     public String getStatus() {
         return status;
     }
-
+    
     public void setStatus(String status) {
         this.status = status;
     }
-
-    public String getDescription() {
-        return description;
+    
+    public Timestamp getPaymentDate() {
+        return paymentDate;
     }
-
-    public void setDescription(String description) {
-        this.description = description;
+    
+    public void setPaymentDate(Timestamp paymentDate) {
+        this.paymentDate = paymentDate;
     }
-
-    @Override
-    public String toString() {
-        return "Payment{" +
-                "paymentId=" + paymentId +
-                ", paymentCode='" + paymentCode + '\'' +
-                ", userId=" + userId +
-                ", amount=" + amount +
-                ", paymentMethod='" + paymentMethod + '\'' +
-                ", paymentDate=" + paymentDate +
-                ", status='" + status + '\'' +
-                ", description='" + description + '\'' +
-                '}';
+    
+    public String getCardNumber() {
+        return cardNumber;
+    }
+    
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+    
+    public String getCardName() {
+        return cardName;
+    }
+    
+    public void setCardName(String cardName) {
+        this.cardName = cardName;
+    }
+    
+    public String getExpDate() {
+        return expDate;
+    }
+    
+    public void setExpDate(String expDate) {
+        this.expDate = expDate;
     }
 }

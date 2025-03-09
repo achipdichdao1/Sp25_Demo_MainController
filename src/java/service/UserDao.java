@@ -25,42 +25,42 @@ public class UserDao implements IUserDAO {
     private static final String SELECT_ALL_USERS = "SELECT * FROM Users";
     private static final String DELETE_USER = "DELETE FROM Users WHERE id=?";
 
-public User checkLogin(String username, String password) throws SQLException {
-    User user = null;
-    String sql = "SELECT * FROM Users WHERE username = ? AND passwords = ?";
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-         ps.setString(1, username);
-         ps.setString(2, password);
-         ResultSet rs = ps.executeQuery();
-         if(rs.next()){
-            user = new User(rs.getInt("id"),
-                            rs.getString("username"),
-                            rs.getString("email"),
-                            rs.getString("country"),
-                            rs.getString("roles"),
-                            rs.getBoolean("statuss"),
-                            rs.getString("passwords"));
-         }
-    } catch(SQLException e) {
-         e.printStackTrace();
-         throw e;
-    }
-    return user;
-}
-
-public boolean isUsernameExists(String username) throws SQLException {
-    String sql = "SELECT COUNT(*) FROM Users WHERE username = ?";
-    try (Connection conn = DBConnection.getConnection();
-         PreparedStatement ps = conn.prepareStatement(sql)) {
-        ps.setString(1, username);
-        ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
-            return rs.getInt(1) > 0;
+    public User checkLogin(String username, String password) throws SQLException {
+        User user = null;
+        String sql = "SELECT * FROM Users WHERE username = ? AND passwords = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+             ps.setString(1, username);
+             ps.setString(2, password);
+             ResultSet rs = ps.executeQuery();
+             if(rs.next()){
+                user = new User(rs.getInt("id"),
+                                rs.getString("username"),
+                                rs.getString("email"),
+                                rs.getString("country"),
+                                rs.getString("roles"),
+                                rs.getBoolean("statuss"),
+                                rs.getString("passwords"));
+             }
+        } catch(SQLException e) {
+             e.printStackTrace();
+             throw e;
         }
+        return user;
     }
-    return false;
-}
+
+    public boolean isUsernameExists(String username) throws SQLException {
+        String sql = "SELECT COUNT(*) FROM Users WHERE username = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, username);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void insertUser(User user) throws SQLException {
@@ -70,7 +70,8 @@ public boolean isUsernameExists(String username) throws SQLException {
                 ps.setString(1, user.getUsername());
                 ps.setString(2, user.getEmail());
                 ps.setString(3, user.getCountry());
-                ps.setString(4, user.getRole());
+                // Fix here: Convert int role to String
+                ps.setString(4, String.valueOf(user.getRole()));
                 ps.setBoolean(5, user.isStatus());
                 ps.setString(6, user.getPassword());
 
@@ -155,7 +156,6 @@ public boolean isUsernameExists(String username) throws SQLException {
         return users;
     }
 
-
     @Override
     public boolean deleteUser(int id) throws SQLException {
         try (Connection conn = DBConnection.getConnection()) {
@@ -180,7 +180,8 @@ public boolean isUsernameExists(String username) throws SQLException {
                 ps.setString(1, user.getUsername());
                 ps.setString(2, user.getEmail());
                 ps.setString(3, user.getCountry());
-                ps.setString(4, user.getRole());
+                // Fix here: Convert int role to String
+                ps.setString(4, String.valueOf(user.getRole()));
                 ps.setBoolean(5, user.isStatus());
                 ps.setString(6, user.getPassword());
                 ps.setInt(7, user.getId());
@@ -188,6 +189,7 @@ public boolean isUsernameExists(String username) throws SQLException {
                 int rowsUpdated = ps.executeUpdate();
                 if (rowsUpdated > 0) {
                     System.out.println("User updated successfully!");
+                    rowUpdated = true;
                 } else {
                     System.out.println("No user found with the given ID!");
                 }
