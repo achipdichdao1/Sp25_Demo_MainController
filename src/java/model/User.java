@@ -125,4 +125,12 @@ public class User {
     public void setCountry(String country) {
         this.country = country;
     }
+    
+    public boolean isAdmin() {
+    return role == 1;
+}
+    
+    public boolean isUser() {
+    return role == 0;
+}
 }

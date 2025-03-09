@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/login.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/LoginServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/model/OrderDetail.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/product/productList.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/payment/result.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/dao/DBConnection.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/ProductServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/listener/ProductViewListener.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/payment/ProcessPaymentServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/IUserDAO.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/dto/PaymentRequest.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/LogoutServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/model/Payment.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/user/deleteUser.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/payment/PaymentCallbackServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/PaymentService.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/OrderDetailDAO.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/views/productListShop.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/payment/PaymentHistoryServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/model/Order.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/product/createProduct.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/checkout/checkout.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/user/createUser.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/filter/LoginFilter.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/OrderDAO.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/PaymentDAO.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/RegisterServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/payment/checkout.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/service/UserDao.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/model/User.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/user/userList.jsp</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/web/WEB-INF/web.xml</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/controller/CheckOutServlet.java</file>
+            <file>file:/D:/CODE/PRJ/New%20folder/full%20(1)/Sp25_Demo_MainController1/src/java/model/Cart.java</file>
+        </group>
+    </open-files>
+</project-private>
