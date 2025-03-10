@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Danh Sách Sản Phẩm</title>
+    <meta charset="UTF-8">
     <style>
         table {
             width: 100%;
@@ -62,13 +63,28 @@
         .admin-buttons a:hover {
             background-color: #0056b3;
         }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            text-decoration: none;
+        }
+        .pagination a.active {
+            background-color: #007bff;
+            color: white;
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <div style="display: flex; align-items: center;">
             <h2>Danh Sách Sản Phẩm</h2>
-           <c:if test="${not empty sessionScope.user && sessionScope.user.admin}">
+            <c:if test="${not empty sessionScope.user && sessionScope.user.isAdmin()}">
                 <div class="admin-buttons">
                     <a href="${pageContext.request.contextPath}/users">User Management</a>
                     <a href="${pageContext.request.contextPath}/products">Product Management</a>
@@ -107,12 +123,12 @@
             <th>Description</th>
             <th>Stock</th>
             <!-- Only show ImportDate header for admin users -->
-            <c:if test="${not empty sessionScope.user && sessionScope.user.admin}">
+            <c:if test="${not empty sessionScope.user && sessionScope.user.isAdmin()}">
                 <th>ImportDate</th>
             </c:if>
             <th>Status</th>
             <!-- Only show Actions column for users and non-logged in visitors -->
-            <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.role == 'user')}">
+            <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.isUser())}">
                 <th>Actions</th>
             </c:if>
         </tr>
@@ -129,7 +145,7 @@
                     <td>${product.description}</td>
                     <td>${product.stock}</td>
                     <!-- Only show ImportDate for admin users -->
-                    <c:if test="${not empty sessionScope.user && sessionScope.user.admin}">
+                    <c:if test="${not empty sessionScope.user && sessionScope.user.isAdmin()}">
                         <td>${product.importDate}</td>
                     </c:if>
                     <td>
@@ -143,7 +159,7 @@
                         </c:choose>
                     </td>
                     <!-- Only show Actions column for users and non-logged in visitors -->
-                    <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.role == 'user')}">
+                    <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.isUser())}">
                         <td class="actions">
                             <a href="cart?action=add&productId=${product.id}&quantity=1&returnUrl=${pageContext.request.requestURI}">Thêm vào giỏ</a>
                         </td>
@@ -173,7 +189,7 @@
     </div>
 
     <!-- Only show "View Cart" button for users and non-logged-in visitors -->
-    <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.role == 'user')}">
+    <c:if test="${empty sessionScope.user || (not empty sessionScope.user && sessionScope.user.isUser())}">
         <div style="text-align: center; margin-top: 20px;">
             <a href="cart?action=show">
                 <button style="padding: 10px 20px; font-size: 16px;">Xem Giỏ Hàng</button>
